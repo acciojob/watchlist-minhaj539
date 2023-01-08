@@ -40,7 +40,7 @@ public class MovieController {
        return new ResponseEntity<>(movie,HttpStatus.ACCEPTED);
     }
 
-    //get director by name
+    //get director by director name
     @GetMapping("/get_director_by_name")
     public ResponseEntity<Director> getDirectorByName(@RequestParam("name")String name){
         Director director=movieService.getDirectorByName(name);
@@ -68,5 +68,16 @@ public class MovieController {
     public ResponseEntity<String> deleteAllDirectors(){
         String res=movieService.deleteAllDirectors();
         return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
+    }
+
+
+
+
+
+    //get director name by movie name
+    @GetMapping("/get_director_by_movie_name")
+    public ResponseEntity<String> getDirectorByMovie(@RequestParam("movie_name") String movie_name){
+        String response=movieService.getDirectorByMovieName(movie_name);
+        return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
 }

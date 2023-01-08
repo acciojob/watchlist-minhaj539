@@ -41,4 +41,10 @@ public class MovieService {
     public String deleteAllDirectors() {
         return movieRepository.deleteAllDirectorsFromDb();
     }
+
+    public String getDirectorByMovieName(String movieName) {
+        String response=movieRepository.getDirectorByMovie(movieName);
+        if(response==null) return "director not found";
+        return response;
+    }
 }

@@ -103,4 +103,15 @@ public class MovieRepository {
        directorDb.clear();
        return "no movies to remove";
     }
+
+    public String getDirectorByMovie(String movieName) {
+        if(!movieDb.containsKey(movieName)) return null;
+        for(String director:pair.keySet()){
+            List<String> moviesList=pair.get(director);
+            for(String movie:moviesList){
+                if(movie.equals(movieName)) return director;
+            }
+        }
+        return null;
+    }
 }
